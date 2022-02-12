@@ -5,7 +5,7 @@
     xmlns:f="http://java.sun.com/jsf/core" 	
     xmlns:h="http://java.sun.com/jsf/html">
  
-<ui:composition template="blank-page-crear.xhtml">
+<ui:composition template="blank-page-admin.xhtml">
     <ui:define name="title">
     Listar Clientes
     
@@ -17,8 +17,10 @@
                    
             Buscar:
 		<h:inputText value="#{clientesBean.filtro}" />
-			<h:commandButton action="#{clientesBean.buscarPorNombre()}"
+			<h:commandButton action="#{clientesBean.buscarCedula()}"
 					value="Buscar" />
+					
+					
 			<h:dataTable value="#{clientesBean.clientes}" var="cliente" class="table table-striped">
 				<h:column>
 				<f:facet name="header">Cedula</f:facet>
@@ -49,7 +51,7 @@
 
 			</h:dataTable>
 		
-			<h:commandButton action="crear-persona" value="refresar" />
+			<h:commandButton action="listado-clientes" value="refresar" />
 	
         </h:form>
     </ui:define>

@@ -9,7 +9,7 @@
 
 
 </h:head> 
-<ui:composition template="blank-page-crear.xhtml">
+<ui:composition template="blank-page-admin.xhtml">
     <ui:define name="title">
     Sistema de Registro
         <h:outputText value="#{msg.tituloPagina}" />
@@ -20,7 +20,7 @@
     
     	<h:form class ="forms-sample">
     	
-    	   
+    	                      
                       <div class="form-group">
                         <label for="txtNombre">Nombre de Usuario</label>
                         <h:inputText value="#{clientesBean.nombre}"
@@ -32,7 +32,7 @@
                         <h:inputText value="#{clientesBean.cedula}"
                          class="form-control" id="txtCedula"/>
                       </div>
-                   
+
                       <div class="form-group">
                         <label for="txtDireccion">Celular</label>
                       <h:inputText value="#{clientesBean.celular}"
@@ -46,11 +46,9 @@
                       </div>
                       
                 
-                 	 <h:commandButton action="#{clientesBean.guardar()}" value="Registrarte" 
+                 	 <h:commandButton action="#{clientesBean.guardarCambios()}" value="Guardar Cambios" 
                  	 	class="btn btn-primary mr-2" />
-                   	                    	
-                   	<h:commandButton action="login" value="Crear Cuenta" 
-                 	 	class="btn btn-primary mr-2" />
+                   
                    
         </h:form>
     </ui:define>

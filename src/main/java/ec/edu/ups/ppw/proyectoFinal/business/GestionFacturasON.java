@@ -24,6 +24,14 @@ public class GestionFacturasON {
 		Persona p  = daoPersona.read(pe.getCedula());
 		if(p==null) 
 			daoPersona.insert(pe);
+		
+	}
+	
+	public void guardarCambios(Persona pe) {
+		
+		Persona p  = daoPersona.read(pe.getCedula());
+		if(p==null) 
+			daoPersona.insert(pe);
 		else
 			daoPersona.update(pe);
 	}
@@ -32,9 +40,9 @@ public class GestionFacturasON {
 		return daoPersona.getList();
 	}
 
-	public List<Persona> getListPorNombre(String filtro) {
+	public List<Persona> getListPorCedula(String filtro) {
 		filtro="%" + filtro + "%";
-		return daoPersona.getListXNombre(filtro);
+		return daoPersona.getListxCedula(filtro);
 	}
 	
 	public Persona getCLiente(String cedula) {

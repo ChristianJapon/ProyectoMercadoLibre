@@ -45,9 +45,9 @@ public class PersonaDAO {
 	}
 	
 	
-	public List<Persona>getListXNombre(String filtro){
+	public List<Persona>getListxCedula(String filtro){
 		String jpql="SELECT p FROM Persona p "
-				+"WHERE nombre LIKE ?1";
+				+"WHERE cedula LIKE ?1";
 		
 		Query q =em.createQuery(jpql, Persona.class);
 		q.setParameter(1, filtro );

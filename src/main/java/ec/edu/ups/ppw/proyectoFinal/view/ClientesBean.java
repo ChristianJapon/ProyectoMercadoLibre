@@ -106,14 +106,32 @@ public class ClientesBean {
 		return null;// "listado-clientes";
 	}
 		
-	public String  buscarPorNombre() {
-		clientes=facOn.getListPorNombre(this.filtro);
+	public String buscarCedula() {
+		clientes=facOn.getListPorCedula(this.filtro);
 		return null;
 	}
 	
+	public String guardarCambios() {
+	Persona p= new Persona();
+		
+		p.setCedula(this.cedula);
+		p.setNombre(this.nombre);
+		p.setCelular(this.celular);
+		p.setCorreo(this.correo);
+				
+		facOn.guardarCambios(p);;
+		
+		this.init();
+		
+		
+		return null;
+		
+	}
+	
+	
+	
 	public String editarCliente(String cedula) {
-		System.out.println("Editando "+ cedula);
-		return "crear-persona?faces-redirect=true&id="+cedula;
+		return "editar-persona-admin?faces-redirect=true&id="+cedula;
 	}
 	public void loadDatos() {
 		
