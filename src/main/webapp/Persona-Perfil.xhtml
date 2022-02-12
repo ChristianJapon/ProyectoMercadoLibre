@@ -1,0 +1,53 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:rich="http://richfaces.org/rich"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+
+<ui:composition template="/blank-page-crear.xhtml">
+	<ui:define name="title">
+		Perfil
+	</ui:define>>
+
+	<ui:define name="content">
+		
+		<div class="card-body">
+                    <h4 class="card-title">NOmbre kk noseque</h4>
+                    <p class="card-description"> Una breve descipcion de mi</p>
+                    <form class="forms-sample">
+                      <div class="form-group row">
+                        <label for="txtCedula" class="col-sm-3 col-form-label">Cedula</label>
+                        <div class="col-sm-9">
+                          <h:outputLabel class="form-control" value="#{clientesBean.cedula}" id="txtCedula"/> 
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="txtNombre" class="col-sm-3 col-form-label">Nombre</label>
+                        <div class="col-sm-9">
+                           <h:outputLabel class="form-control" value="#{clientesBean.nombre}" id="txtNombre"/> 
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="txtCelular" class="col-sm-3 col-form-label">Celular</label>
+                        <div class="col-sm-9">
+                          <h:outputLabel class="form-control" value="#{clientesBean.celular}" id="txtCelular"/> 
+                        </div>
+                      </div>
+                      <div class="form-group row">
+                        <label for="txtCorreo" class="col-sm-3 col-form-label">Correo</label>
+                        <div class="col-sm-9">
+                          <h:outputLabel class="form-control" value="#{clientesBean.correo}" id="txtCorreo"/> 
+                        </div>
+                      </div>
+                      <button type="submit" class="btn btn-primary mr-2" action="crear-persona">Submit</button>
+                    </form>
+                  </div>
+	
+	</ui:define>
+	
+</ui:composition>
+
+</html>
