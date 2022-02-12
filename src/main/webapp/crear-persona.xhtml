@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core" 	
+    xmlns:h="http://java.sun.com/jsf/html">
+ <h:head>
+
+
+
+</h:head> 
+<ui:composition template="blank-page-crear.xhtml">
+    <ui:define name="title">
+    Crear Usuario
+        <h:outputText value="#{msg.tituloPagina}" />
+    </ui:define>
+    <ui:define name="content">
+    
+    
+    
+    	<h:form class ="forms-sample">
+    	
+    	
+                      <div class="form-group">
+                        <label for="txtCedula">Cedula</label>
+                        <h:inputText value="#{clientesBean.cedula}"
+                         class="form-control" id="txtCedula"/>
+                      </div>
+                      
+                      <div class="form-group">
+                        <label for="txtNombre">Nombre</label>
+                        <h:inputText value="#{clientesBean.nombre}"
+                         class="form-control" id="txtNombre"/>
+                      </div>
+                      
+                      <div class="form-group">
+                        <label for="txtDireccion">Celular</label>
+                      <h:inputText value="#{clientesBean.celular}"
+                       class="form-control" id="txtCelular" />
+                      </div>
+                      
+                      <div class="form-group">
+                        <label for="txtDireccion">Correo</label>
+                      <h:inputText value="#{clientesBean.correo}"
+                       class="form-control" id="txtCorreo" />
+                      </div>
+                      
+                
+                 	 <h:commandButton action="#{clientesBean.guardar()}" value="Guardar 1" 
+                 	 	class="btn btn-primary mr-2" />
+                   	                    	
+                  
+                   
+        </h:form>
+    </ui:define>
+
+</ui:composition>
+</html>
