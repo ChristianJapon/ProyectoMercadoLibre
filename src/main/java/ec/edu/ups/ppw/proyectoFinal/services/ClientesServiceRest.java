@@ -16,8 +16,10 @@ import javax.ws.rs.core.MediaType;
 
 import ec.edu.ups.ppw.proyectoFinal.business.GestionFacturasON;
 import ec.edu.ups.ppw.proyectoFinal.business.GestionFormularioON;
+import ec.edu.ups.ppw.proyectoFinal.business.GestionVentasON;
 import ec.edu.ups.ppw.proyectoFinal.model.Formulario;
 import ec.edu.ups.ppw.proyectoFinal.model.Persona;
+import ec.edu.ups.ppw.proyectoFinal.model.Venta;
 
 
 
@@ -30,6 +32,9 @@ public class ClientesServiceRest {
 	
 	@Inject
 	private GestionFormularioON forON;
+	
+	@Inject
+	private GestionVentasON venON;
 	
 	
 	@POST
@@ -45,6 +50,25 @@ public class ClientesServiceRest {
 			return res;
 		}catch(Exception e) {
 			res.setCodigo(99);
+			res.setMensaje("Error al guardar");
+			return res;
+		}
+	
+	}
+	
+	@POST
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public Respuesta crearVenta(Venta venta) {
+		//Instrucciones de la funcionalidad
+		Respuesta res= new Respuesta();
+		try {
+			venON.guardarVenta(venta);
+			res.setCodigo(3);
+			res.setMensaje("Guardado Correctamente");
+			return res;
+		}catch(Exception e) {
+			res.setCodigo(103);
 			res.setMensaje("Error al guardar");
 			return res;
 		}
@@ -80,8 +104,10 @@ public class ClientesServiceRest {
 	@Path("formularioL")
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<Formulario> getFormularios(){
+		
 		List<Formulario> formularios = forON.listar();
 		return formularios;
+		
 	}
 
 	@POST

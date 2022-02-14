@@ -1,0 +1,75 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:rich="http://richfaces.org/rich"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<ui:composition template="blank-page-crear.xhtml">
+    <ui:define name="title">
+    	Compra Producto
+    </ui:define>
+    <ui:define name="content">
+    
+    <h2 class="text-dark font-weight-bold mb-2"> Productos </h2>
+    
+    <p class="font-weight-light"> Su producto seleccionado :)</p>
+     <div class="container">
+	  <div class="row">
+	    <div class="col">
+	      	<img src="#{productosBean.photo}" class="img-fluid" alt="producto.png"/>
+	    </div>
+	    <div class="col">
+	     		<h:form class ="forms-sample">
+    	
+   		
+                      <div class="form-group">
+                         <label for="txtNombre">Nombre</label>
+   						 <h:outputText  class="form-control" value="#{productosBean.nombre}" id="txtNombre"/>
+                      </div>
+                      
+                      <div class="form-group">
+                         <label for="txtCorreo">Descripcion</label>
+   						 <h:outputText class="form-control" value="#{productosBean.descripcion}" id="txtCorreo"/>
+                      </div>
+                      
+                      <div class="form-group">
+                        <label for="txtTexto">Precio</label>
+   						<h:outputText class="form-control" value="#{productosBean.precio}"/>
+                      </div>
+                      
+                      <div class="form-grup">
+                    <label for="txtCantidad">Cantidad</label>
+                    <div class="input-group quantity mr-3" style="width: 130px;">
+                        <div class="input-group-btn">
+                            <h:commandButton action="#{productosBean.restar()}" value="-" class="btn btn-primary btn-minus" />  
+                        </div>
+                        <h:inputText class="form-control" value="#{productosBean.cont}" />
+                        <div class="input-group-btn">
+                            <h:commandButton action="#{productosBean.sumar()}" value="+" class="btn btn-primary btn-minus" />
+                        </div>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="txtTexto">Total</label>
+   						<h:outputText class="form-control" value="#{productosBean.total}"/>
+                      </div>
+
+                </div>
+                      
+                 	 <h:commandButton value="Comprar"  class="btn btn-primary mr-2" />
+                   		
+                   		
+        		</h:form>
+	    </div>
+	  </div>
+     </div>
+     <br />
+    	<p>kuchaao</p>
+    </ui:define>
+
+</ui:composition>
+
+
+</html>
