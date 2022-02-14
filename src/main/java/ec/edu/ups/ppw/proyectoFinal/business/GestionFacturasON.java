@@ -24,8 +24,24 @@ public class GestionFacturasON {
 		Persona p  = daoPersona.read(pe.getCedula());
 		if(p==null) 
 			daoPersona.insert(pe);
+		}
+	
+	public String buscarUsuario(Persona pe) {
 		
+		Persona corr = daoPersona.readcorreo(pe.getCorreo());
+		Persona ced = daoPersona.read(pe.getCedula());
+		
+		if(corr == null && ced== null) {
+			
+		String mensaje="Si existe el Usuario";
+		System.out.println(mensaje);
+			return mensaje;	
+			
+		}
+				
+		return null;
 	}
+
 	
 	public void guardarCambios(Persona pe) {
 		
@@ -50,6 +66,9 @@ public class GestionFacturasON {
 		return p;
 		
 	}
+	
+	
+	
 	/*
 	//******PRODUCTO
 	

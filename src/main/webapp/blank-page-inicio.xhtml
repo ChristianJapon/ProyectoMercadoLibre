@@ -3,10 +3,11 @@
 	xmlns:ui="http://java.sun.com/jsf/facelets"
 	xmlns:f="http://java.sun.com/jsf/core"
 	xmlns:h="http://java.sun.com/jsf/html">
-	
-	 <h:head>
+  <h:head>
     <!-- Required meta tags -->
     <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <title>PPW59</title>
     <!-- plugins:css -->
     <link rel="stylesheet" href="template/assets/vendors/mdi/css/materialdesignicons.min.css"/>
     <link rel="stylesheet" href="template/assets/vendors/flag-icon-css/css/flag-icon.min.css"/>
@@ -24,26 +25,120 @@
   <h:body>
     <div class="container-scroller">
       <!-- partial:../../partials/_navbar.html -->
-    
-    
-         <img src="Imagenes/mercadolibreproyecto.png" width="600" height="45" alt="ImagenMercadoLibre" />
+      <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
+        <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
+         <h2>PPW59</h2>
         </div>
+        <div class="navbar-menu-wrapper d-flex align-items-stretch">
+        
+         <img src="Imagenes/mercadolibreproyecto.png" width="500" height="45" alt="ImagenMercadoLibre" />
+                  
+          
+          <!-- CREACION DE USUARIOS  -->
+          
+          
+          <ul class="navbar-nav navbar-nav-right">
+            <li class="nav-item  dropdown d-none d-md-block">
+              <a class="nav-link dropdown-toggle" id="reportDropdown" href="#" data-toggle="dropdown" aria-expanded="false"> Reports </a>
+              <div class="dropdown-menu navbar-dropdown" aria-labelledby="reportDropdown">
+                <a class="dropdown-item" href="#">
+                  <i class="mdi mdi-file-pdf mr-2"></i>PDF </a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">
+                  <i class="mdi mdi-file-excel mr-2"></i>Excel </a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="#">
+                  <i class="mdi mdi-file-word mr-2"></i>doc </a>
+              </div>
+            </li>
+            <li class="nav-item  dropdown d-none d-md-block">
+              <a class="nav-link dropdown-toggle" id="projectDropdown" href="#" data-toggle="dropdown" aria-expanded="false"> Registrarse </a>
+              <div class="dropdown-menu navbar-dropdown" aria-labelledby="projectDropdown">
+                <a class="dropdown-item" href="crear-persona.xhtml">
+                  <i class="mdi mdi-eye-outline mr-2"></i>Crear Cuenta</a>
+                <div class="dropdown-divider"></div>
+                <a class="dropdown-item" href="login.xhtml">
+                  <i class="mdi mdi-pencil-outline mr-2"></i>Logearse </a>
+              </div>
+            </li>
+            
+            
+           
+          </ul>
+          <button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+            <span class="mdi mdi-menu"></span>
+          </button>
+        </div>
+      </nav>
       <!-- partial -->
       <div class="container-fluid page-body-wrapper">
         <!-- partial:../../partials/_sidebar.html -->
-        
+        <nav class="sidebar sidebar-offcanvas" id="sidebar">
+          <ul class="nav">
+            <li class="nav-item nav-category">Main</li>
+            
+                          
+            <li class="nav-item">
+              <a class="nav-link" href="../../index.html">
+                <span class="icon-bg"><i class="mdi mdi-cube menu-icon"></i></span>
+                <span class="menu-title">Dashboard</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" data-toggle="collapse" href="#ui-basic" aria-expanded="false" aria-controls="ui-basic">
+                <span class="icon-bg"><i class="mdi mdi-crosshairs-gps menu-icon"></i></span>
+                <span class="menu-title">UI Elements</span>
+                <i class="menu-arrow"></i>
+              </a>
+              <div class="collapse" id="ui-basic">
+                <ul class="nav flex-column sub-menu">
+                  <li class="nav-item"> <a class="nav-link" href="../../pages/ui-features/buttons.html">Buttons</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="../../pages/ui-features/dropdowns.html">Dropdowns</a></li>
+                  <li class="nav-item"> <a class="nav-link" href="../../pages/ui-features/typography.html">Typography</a></li>
+                </ul>
+              </div>
+            </li>            
+          
+            
+            <li class="nav-item documentation-link">
+              <a class="nav-link" href="http://www.bootstrapdash.com/demo/connect-plus-free/jquery/documentation/documentation.html" target="_blank">
+                <span class="icon-bg">
+                  <i class="mdi mdi-file-document-box menu-icon"></i>
+                </span>
+                <span class="menu-title">Documentation</span>
+              </a>
+            </li>
+            <li class="nav-item sidebar-user-actions">
+              <div class="user-details">
+                
+              </div>
+            </li>
+            <li class="nav-item sidebar-user-actions">
+              <div class="sidebar-user-menu">
+                <a href="#" class="nav-link"><i class="mdi mdi-settings menu-icon"></i>
+                  <span class="menu-title">Settings</span>
+                </a>
+              </div>
+            </li>
+            <li class="nav-item sidebar-user-actions">
+              <div class="sidebar-user-menu">
+                <a href="#" class="nav-link"><i class="mdi mdi-speedometer menu-icon"></i>
+                  <span class="menu-title">Take Tour</span></a>
+              </div>
+            </li>
+            <li class="nav-item sidebar-user-actions">
+              <div class="sidebar-user-menu">
+                <a href="#" class="nav-link"><i class="mdi mdi-logout menu-icon"></i>
+                  <span class="menu-title">Log Out</span></a>
+              </div>
+            </li>
+          </ul>
+        </nav>
         <!-- partial -->
         <div class="main-panel">
           <div class="content-wrapper">
-         <HR></HR>
-              <div class="page-header">
-          	<h1> Interfaz del Administrador </h1>
-          	<img src="Imagenes/admin.png" width="80" height="70" alt="logoAdmin" />
-       			
-          </div>
-        <HR></HR>
-         <h6>Interfaz de acceso solo para los desarrolladores del sitio web</h6>
-         	
+          
+          
     		 <div class="row">
               <div class="col-lg-12 grid-margin">
                 <div class="card">
@@ -59,16 +154,13 @@
           
           
           </div>
-         
-          
           <!-- content-wrapper ends -->
           <!-- partial:../../partials/_footer.html -->
           <footer class="footer">
             <div class="footer-inner-wraper">
               <div class="d-sm-flex justify-content-center justify-content-sm-between">
-                <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © cjaponc@ieee.org 2022</span>
-                <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"> Proyecto <a href="https://www.ups.edu.ec/" target="_blank">Porgrmacion de plataformas web G1</a> Itegrantes: Chsirtian Japon
-                Daniel Lopez Sebastian Uyaguari</span>
+                <span class="text-muted d-block text-center text-sm-left d-sm-inline-block">Copyright © bootstrapdash.com 2020</span>
+                <span class="float-none float-sm-right d-block mt-1 mt-sm-0 text-center"> Free <a href="https://www.bootstrapdash.com/" target="_blank">Bootstrap dashboard templates</a> from Bootstrapdash.com</span>
               </div>
             </div>
           </footer>
@@ -77,7 +169,7 @@
         <!-- main-panel ends -->
       </div>
       <!-- page-body-wrapper ends -->
-   
+    </div>
     <!-- container-scroller -->
     <!-- plugins:js -->
     <script src="template/assets/vendors/js/vendor.bundle.base.js"></script>

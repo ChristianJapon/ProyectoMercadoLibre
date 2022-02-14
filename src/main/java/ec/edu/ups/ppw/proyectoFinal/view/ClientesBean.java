@@ -1,5 +1,6 @@
 package ec.edu.ups.ppw.proyectoFinal.view;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -27,7 +28,7 @@ public class ClientesBean {
 	
 	private String filtro;
 	
-	private List<Persona>clientes;
+	private List<Persona>clientes = new ArrayList<Persona>();
 	
 	@PostConstruct
 	public void init() {
@@ -106,11 +107,7 @@ public class ClientesBean {
 		return null;// "listado-clientes";
 	}
 		
-	public String buscarCedula() {
-		clientes=facOn.getListPorCedula(this.filtro);
-		return null;
-	}
-	
+
 	public String guardarCambios() {
 	Persona p= new Persona();
 		
@@ -119,7 +116,7 @@ public class ClientesBean {
 		p.setCelular(this.celular);
 		p.setCorreo(this.correo);
 				
-		facOn.guardarCambios(p);;
+		facOn.guardarCambios(p);
 		
 		this.init();
 		
@@ -128,8 +125,12 @@ public class ClientesBean {
 		
 	}
 	
+	public String buscarCedula() {
+		clientes=facOn.getListPorCedula(this.filtro);
+		return null;
+	}
 	
-	
+
 	public String editarCliente(String cedula) {
 		return "editar-persona-admin?faces-redirect=true&id="+cedula;
 	}
@@ -149,6 +150,44 @@ public class ClientesBean {
 		newCliente=p*/
 		
 				}
+	
+	public String iniciarSesion() {
+		loadIniciarSesion();
+		System.out.println("-------------------");
+		System.out.println(newCliente.getCedula());
+		System.out.println("-------------------");
+		
+		for (int i=0; i<this.clientes.size();i++) {
+			if(newCliente.getCedula().equalsIgnoreCase(clientes.get(i).getCedula())){
+				System.out.println();
+				
+				if(newCliente.getCorreo().equalsIgnoreCase(clientes.get(i).getCorreo())){
+					
+					System.out.println("Inicio Sesión");
+					return "pagina-inicio?faces-redirect=true&id="+clientes.get(i).getCedula();
+				}else {
+					System.out.println();
+					System.out.println("ERROR");
+				}
+			}else {
+				System.out.println("ERROR");
+			}
+			
+		}
+		return "login?faces-redirect=true"+this.correo;
+		
+	}
+	
+	public void loadIniciarSesion() {
+		this.clientes = facOn.getClientes();
+		
+	}
+	
+	
+	
+	
+	
+	
 	
 	
 

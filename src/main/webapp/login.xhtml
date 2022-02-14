@@ -23,23 +23,20 @@
     	
                       <div class="form-group">
                         <label for="txtCedula">Correo</label>
-                        <h:inputText value="#{clientesBean.cedula}"
+                        <h:inputText value="#{clientesBean.newCliente.correo}"
                          class="form-control" id="txtCedula"/>
                       </div>
                       
                       <div class="form-group">
                         <label for="txtNombre">Cedula</label>
-                        <h:inputText value="#{clientesBean.nombre}"
+                        <h:inputText value="#{clientesBean.newCliente.cedula}"
                          class="form-control" id="txtNombre"/>
                       </div>
                       
                 
-                 	 <h:commandButton action="#{clientesBean.guardar()}" value="Logeame" 
+                 	 <h:commandButton action="#{clientesBean.iniciarSesion()}" value="Logeame" 
                  	 	class="btn btn-primary mr-2" />
-                 	 	
-                 	 	 <h:commandButton action="crear-persona" value="Cancelar" 
-                 	 	class="btn btn-primary mr-2" />	
-                   	                    	
+                 	 	               	                    	
                   
                    
         </h:form>

@@ -24,16 +24,24 @@ public class PersonaDAO {
 		em.merge(p);
 	}
 
+	public List<Persona>getListxCorreo(String filtro) {
+		
+		String jpql="SELECT p FROM Persona p "
+				+"WHERE correo LIKE ?1";
+		
+		Query q =em.createQuery(jpql, Persona.class);
+		q.setParameter(1, filtro );
+		return q.getResultList();
+	}
+	
 	public Persona read(String cedula) {
 		Persona p=em.find(Persona.class,cedula);
 		return p;
-
 	}
 
 	public void delete(String cedula) {
 		Persona p=em.find(Persona.class,cedula);
 		em.remove(p);
-
 	}
 	
 	public List<Persona>getList(){
@@ -44,7 +52,6 @@ public class PersonaDAO {
 		return q.getResultList();
 	}
 	
-	
 	public List<Persona>getListxCedula(String filtro){
 		String jpql="SELECT p FROM Persona p "
 				+"WHERE cedula LIKE ?1";
@@ -54,5 +61,13 @@ public class PersonaDAO {
 		return q.getResultList();
 	}
 	
+	
+	
+	public Persona readcorreo(String correo) {
+		Persona p= em.find(Persona.class,correo);
+		return p;
+	}
+	
+
 
 }
