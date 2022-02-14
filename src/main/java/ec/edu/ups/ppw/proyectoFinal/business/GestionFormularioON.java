@@ -38,4 +38,9 @@ public class GestionFormularioON {
 		
 	}
 	
+	public List<Formulario> listar(){
+		
+		return formularioDAO.getList();
+		
+	}
 }

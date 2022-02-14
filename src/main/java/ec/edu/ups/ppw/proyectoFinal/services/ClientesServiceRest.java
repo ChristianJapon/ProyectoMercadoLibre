@@ -13,7 +13,10 @@ import javax.ws.rs.Produces;
 import javax.ws.rs.QueryParam;
 import javax.ws.rs.core.MediaType;
 
+
 import ec.edu.ups.ppw.proyectoFinal.business.GestionFacturasON;
+import ec.edu.ups.ppw.proyectoFinal.business.GestionFormularioON;
+import ec.edu.ups.ppw.proyectoFinal.model.Formulario;
 import ec.edu.ups.ppw.proyectoFinal.model.Persona;
 
 
@@ -24,6 +27,9 @@ public class ClientesServiceRest {
 	
 	@Inject
 	private GestionFacturasON facON;
+	
+	@Inject
+	private GestionFormularioON forON;
 	
 	
 	@POST
@@ -69,7 +75,33 @@ public class ClientesServiceRest {
 		List<Persona> clientes = facON.getClientes();
 		return clientes;
 	}
+	
+	@GET
+	@Path("formularioL")
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<Formulario> getFormularios(){
+		List<Formulario> formularios = forON.listar();
+		return formularios;
+	}
 
+	@POST
+	@Path("formulario")
+	@Consumes(MediaType.APPLICATION_JSON)
+	@Produces(MediaType.APPLICATION_JSON)
+	public Respuesta crearFormulario(Formulario formulario) {
+		
+		Respuesta res = new Respuesta();
+		
+		try{
+			forON.guardarFormulario(formulario);
+			res.setCodigo(1);
+			res.setMensaje("Bien");
+		}catch (Exception e) {
+			res.setCodigo(99);
+			res.setMensaje("Error al guardar");
+		}
+		return null;
+	}
 	
 	
 }
