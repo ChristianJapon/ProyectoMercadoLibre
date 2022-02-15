@@ -1,5 +1,6 @@
 package ec.edu.ups.ppw.proyectoFinal.view;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -7,7 +8,9 @@ import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import ec.edu.ups.ppw.proyectoFinal.business.GestionFacturasON;
 import ec.edu.ups.ppw.proyectoFinal.business.GestionProductosON;
+import ec.edu.ups.ppw.proyectoFinal.model.Persona;
 import ec.edu.ups.ppw.proyectoFinal.model.Producto;
 
 @Named
@@ -16,6 +19,8 @@ public class ProductosBean {
 
 	@Inject
 	private GestionProductosON prodOn;
+	@Inject
+	private GestionFacturasON facOn;
 
 	private String codigo;
 	private String nombre;
@@ -23,10 +28,12 @@ public class ProductosBean {
 	private String descripcion;
 	private String cantidad;
 	private String photo;
+	private String cedula;
 
 	private Producto newProducto = new Producto();
 
 	private String filtro;
+	private List<Persona>clientes = new ArrayList<Persona>();
 
 	private List<Producto> productos;
 	
@@ -37,6 +44,7 @@ public class ProductosBean {
 	@PostConstruct
 	public void init() {
 		productos = prodOn.getProductos();
+		clientes=facOn.getClientes();
 	}
 
 	public String getCodigo() {
@@ -154,5 +162,9 @@ public class ProductosBean {
 			total = Double.parseDouble(precio) * cont;
 		}
 		
+	}
+	public String buscarCedula() {
+		clientes=facOn.getListPorCedula(this.filtro);
+		return null;
 	}
 }

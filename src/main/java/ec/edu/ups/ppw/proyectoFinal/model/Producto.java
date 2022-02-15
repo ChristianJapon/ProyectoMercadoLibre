@@ -33,6 +33,17 @@ public class Producto {
 	@Column(name="pro_photo")
 	private String photo;
 
+	private String cedula;
+	
+	
+	public String getCedula() {
+		return cedula;
+	}
+
+	public void setCedula(String cedula) {
+		this.cedula = cedula;
+	}
+
 	public String getCodigo() {
 		return codigo;
 	}
