@@ -16,6 +16,7 @@ public class GestionVentasON {
 	
 	public void guardarVenta(Venta venta) {
 		venta.setCodigo(siguienteId());
+		ventaDAO.insert(venta);
 	}
 	
 	public int siguienteId() {

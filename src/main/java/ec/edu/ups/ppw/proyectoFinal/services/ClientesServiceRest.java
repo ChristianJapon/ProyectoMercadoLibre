@@ -79,6 +79,7 @@ public class ClientesServiceRest {
 	
 	
 	@POST
+	@Path("venta")
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
 	public Respuesta crearVenta(Venta venta) {
@@ -95,6 +96,16 @@ public class ClientesServiceRest {
 			return res;
 		}
 	
+	}
+	
+	@GET
+	@Path("ventaL")
+	@Produces(MediaType.APPLICATION_JSON)
+	public List<Venta> getVenta(){
+		
+		List<Venta> ventas = venON.listar();
+		return ventas;
+		
 	}
 	
 	
