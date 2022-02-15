@@ -30,6 +30,8 @@ public class ClientesBean {
 	
 	private List<Persona>clientes = new ArrayList<Persona>();
 	
+	
+	
 	@PostConstruct
 	public void init() {
 		clientes=facOn.getClientes();

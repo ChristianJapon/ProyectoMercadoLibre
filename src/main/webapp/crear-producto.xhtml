@@ -9,7 +9,7 @@
 
 
 </h:head> 
-<ui:composition template="blank-page-crear-prodicto.xhtml">
+<ui:composition template="blank-page-crearProducto.xhtml">
     <ui:define name="CrearProducto">
     	Crear Producto
         <h:outputText value="#{msg.tituloPagina}" />
@@ -18,9 +18,10 @@
     
     
     
+    
     	<h:form class ="forms-sample">
     	
-    	
+    	 
                       <div class="form-group">
                         <label for="txtCodigo">Codigo</label>
                         <h:inputText value="#{productosBean.codigo}"
@@ -58,13 +59,14 @@
                       </div>
                       
                      
-                
                  	 <h:commandButton action="#{productosBean.guardar()}" value="Guardar Producto" 
                  	 	class="btn btn-primary mr-2" />
                    	                    	
                   
                    
         </h:form>
+    
+    
     </ui:define>
 
 </ui:composition>

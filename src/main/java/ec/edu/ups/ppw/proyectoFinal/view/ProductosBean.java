@@ -1,5 +1,6 @@
 package ec.edu.ups.ppw.proyectoFinal.view;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.annotation.PostConstruct;
@@ -28,12 +29,14 @@ public class ProductosBean {
 
 	private String filtro;
 
-	private List<Producto> productos;
+	private List<Producto> productos = new ArrayList<Producto>();
 	
+	
+	/*
 	private int cont=1;
 	
 	private double total=Double.parseDouble(precio);
-
+*/
 	@PostConstruct
 	public void init() {
 		productos = prodOn.getProductos();
@@ -102,7 +105,7 @@ public class ProductosBean {
 	public void setFiltro(String filtro) {
 		this.filtro = filtro;
 	}
-	
+	/*
 	public int getCont() {
 		return cont;
 	}
@@ -110,7 +113,7 @@ public class ProductosBean {
 	public void setCont(int cont) {
 		this.cont = cont;
 	}
-
+*/
 	public List<Producto> getProductos() {
 		return productos;
 	}
@@ -118,7 +121,7 @@ public class ProductosBean {
 	public void setProductos(List<Producto> productos) {
 		this.productos = productos;
 	}
-	
+	/*
 	public double getTotal() {
 		return total;
 	}
@@ -126,6 +129,8 @@ public class ProductosBean {
 	public void setTotal(double total) {
 		this.total = total;
 	}
+	*/
+	
 
 	public String guardar() {
 		System.out.println(this.codigo+"  "+this.nombre+" "+this.precio);
@@ -135,7 +140,7 @@ public class ProductosBean {
 		pr.setPrecio(this.precio);
 		pr.setDescripcion(this.descripcion);
 		pr.setCantidad(this.cantidad);
-		//pr.setImagenPro(this.imagenProducto);
+		pr.setPhoto(this.photo);
 		
 		prodOn.guardarProducto(pr);
 	
@@ -144,7 +149,7 @@ public class ProductosBean {
 		return   null;// "listado-productos"; 
 	}
 
-	public void sumar() {
+	/*public void sumar() {
 		this.cont=this.cont+1;
 		total = Double.parseDouble(precio) * cont;
 	}
@@ -154,5 +159,5 @@ public class ProductosBean {
 			total = Double.parseDouble(precio) * cont;
 		}
 		
-	}
+	}*/
 }
