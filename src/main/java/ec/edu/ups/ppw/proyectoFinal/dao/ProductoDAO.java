@@ -7,6 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 import javax.persistence.Query;
 
+import ec.edu.ups.ppw.proyectoFinal.model.Persona;
 import ec.edu.ups.ppw.proyectoFinal.model.Producto;
 
 @Stateless
@@ -52,6 +53,14 @@ public class ProductoDAO {
 				+"WHERE nombre LIKE ?1";
 		
 		Query q =em.createQuery(jpql, Producto.class);
+		q.setParameter(1, filtro );
+		return q.getResultList();
+	}
+	public List<Persona>getListxCedula(String filtro){
+		String jpql="SELECT p FROM Persona p "
+				+"WHERE cedula LIKE ?1";
+		
+		Query q =em.createQuery(jpql, Persona.class);
 		q.setParameter(1, filtro );
 		return q.getResultList();
 	}

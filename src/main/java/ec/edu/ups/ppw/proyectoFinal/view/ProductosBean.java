@@ -8,7 +8,9 @@ import javax.enterprise.context.RequestScoped;
 import javax.inject.Inject;
 import javax.inject.Named;
 
+import ec.edu.ups.ppw.proyectoFinal.business.GestionFacturasON;
 import ec.edu.ups.ppw.proyectoFinal.business.GestionProductosON;
+import ec.edu.ups.ppw.proyectoFinal.model.Persona;
 import ec.edu.ups.ppw.proyectoFinal.model.Producto;
 
 @Named
@@ -17,6 +19,8 @@ public class ProductosBean {
 
 	@Inject
 	private GestionProductosON prodOn;
+	@Inject
+	private GestionFacturasON facOn;
 
 	private String codigo;
 	private String nombre;
@@ -24,22 +28,23 @@ public class ProductosBean {
 	private String descripcion;
 	private String cantidad;
 	private String photo;
+	private String cedula;
 
 	private Producto newProducto = new Producto();
 
 	private String filtro;
+	private List<Persona>clientes = new ArrayList<Persona>();
 
-	private List<Producto> productos = new ArrayList<Producto>();
+	private List<Producto> productos;
 	
-	
-	/*
 	private int cont=1;
 	
 	private double total=Double.parseDouble(precio);
-*/
+
 	@PostConstruct
 	public void init() {
 		productos = prodOn.getProductos();
+		clientes=facOn.getClientes();
 	}
 
 	public String getCodigo() {
@@ -105,7 +110,7 @@ public class ProductosBean {
 	public void setFiltro(String filtro) {
 		this.filtro = filtro;
 	}
-	/*
+	
 	public int getCont() {
 		return cont;
 	}
@@ -113,7 +118,7 @@ public class ProductosBean {
 	public void setCont(int cont) {
 		this.cont = cont;
 	}
-*/
+
 	public List<Producto> getProductos() {
 		return productos;
 	}
@@ -121,7 +126,7 @@ public class ProductosBean {
 	public void setProductos(List<Producto> productos) {
 		this.productos = productos;
 	}
-	/*
+	
 	public double getTotal() {
 		return total;
 	}
@@ -129,8 +134,6 @@ public class ProductosBean {
 	public void setTotal(double total) {
 		this.total = total;
 	}
-	*/
-	
 
 	public String guardar() {
 		System.out.println(this.codigo+"  "+this.nombre+" "+this.precio);
@@ -140,7 +143,7 @@ public class ProductosBean {
 		pr.setPrecio(this.precio);
 		pr.setDescripcion(this.descripcion);
 		pr.setCantidad(this.cantidad);
-		pr.setPhoto(this.photo);
+		//pr.setImagenPro(this.imagenProducto);
 		
 		prodOn.guardarProducto(pr);
 	
@@ -149,7 +152,7 @@ public class ProductosBean {
 		return   null;// "listado-productos"; 
 	}
 
-	/*public void sumar() {
+	public void sumar() {
 		this.cont=this.cont+1;
 		total = Double.parseDouble(precio) * cont;
 	}
@@ -159,5 +162,9 @@ public class ProductosBean {
 			total = Double.parseDouble(precio) * cont;
 		}
 		
-	}*/
+	}
+	public String buscarCedula() {
+		clientes=facOn.getListPorCedula(this.filtro);
+		return null;
+	}
 }
