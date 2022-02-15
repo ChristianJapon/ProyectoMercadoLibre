@@ -5,7 +5,9 @@ import java.util.List;
 import javax.ejb.Stateless;
 import javax.inject.Inject;
 
+import ec.edu.ups.ppw.proyectoFinal.dao.PersonaDAO;
 import ec.edu.ups.ppw.proyectoFinal.dao.ProductoDAO;
+import ec.edu.ups.ppw.proyectoFinal.model.Persona;
 import ec.edu.ups.ppw.proyectoFinal.model.Producto;
 
 @Stateless
@@ -13,6 +15,7 @@ public class GestionProductosON {
 
 	@Inject
 	private ProductoDAO daoProducto;
+	private PersonaDAO daoPersona;
 	
 	public void guardarProducto(Producto pr) {
 		
@@ -47,6 +50,10 @@ public class GestionProductosON {
 		Producto pr=daoProducto.read(codigo);
 		return pr;
 		
+	}
+	public List<Persona> getListPorCedula(String filtro) {
+		filtro="%" + filtro + "%";
+		return daoPersona.getListxCedula(filtro);
 	}
 	
 }
