@@ -164,7 +164,7 @@ public class ClientesBean {
 				if(newCliente.getCorreo().equalsIgnoreCase(clientes.get(i).getCorreo())){
 					
 					System.out.println("Inicio Sesión");
-					return "pagina-inicio?faces-redirect=true&id="+clientes.get(i).getCedula();
+				//	return "pagina-inicio?faces-redirect=true&id="+clientes.get(i).getCedula();
 				}else {
 					System.out.println();
 					System.out.println("ERROR");

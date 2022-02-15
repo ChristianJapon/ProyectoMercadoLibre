@@ -26,16 +26,13 @@ public class GestionFacturasON {
 			daoPersona.insert(pe);
 		}
 	
-	public String buscarUsuario(Persona pe) {
+	public Persona buscarUsuario(String cedula, String correo) {
 		
-		Persona corr = daoPersona.readcorreo(pe.getCorreo());
-		Persona ced = daoPersona.read(pe.getCedula());
+	Persona p = daoPersona.read(cedula);
 		
-		if(corr == null && ced== null) {
+		if(p != null & p.getCorreo().equals(correo)) {
 			
-		String mensaje="Si existe el Usuario";
-		System.out.println(mensaje);
-			return mensaje;	
+			return p;	
 			
 		}
 				

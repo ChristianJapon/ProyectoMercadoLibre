@@ -56,6 +56,28 @@ public class ClientesServiceRest {
 	
 	}
 	
+	@GET
+	@Path("login")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Persona login(@QueryParam("correo")String correo,@QueryParam("cedula")String cedula) {
+		//Instrucciones de la funcionalidad
+		Persona p1 = new Persona();
+		Respuesta res= new Respuesta();
+		
+		try {
+			p1 =facON.buscarUsuario(cedula, correo);
+			res.setCodigo(1);
+			res.setMensaje("Guardado Correctamente");
+			return p1;
+		}catch(Exception e) {
+			res.setCodigo(99);
+			res.setMensaje("Error al guardar");
+			return null;
+		}
+	
+	}
+	
+	
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
