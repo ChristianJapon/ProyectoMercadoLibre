@@ -37,4 +37,15 @@ public class GestionVentasON {
 		return ventaDAO.getList();
 	}
 	
+	public List<Venta> listarPorCedulaVendedor(String filtro){
+		String f = "%"+filtro+"%";
+		return ventaDAO.getListVendedor(f);
+	}
+	
+	public List<Venta> listarPorCedulaComprador(String filtro){
+		String f = "%"+filtro+"%";
+		return ventaDAO.getListComprador(f);
+	}
+	
+	
 }

@@ -171,5 +171,15 @@ public class ClientesServiceRest {
 		return null;
 	}
 	
+	@GET
+	@Path("buscarCliente")
+	@Produces(MediaType.APPLICATION_JSON)
+	public Persona buscarCliente(@QueryParam("cedula")String cedula){
+		
+		Persona p = facON.getCLiente(cedula);
+		return p;
+		
+	}
+	
 	
 }

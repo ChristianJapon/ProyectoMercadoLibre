@@ -43,4 +43,22 @@ public class VentasDAO {
 		return q.getResultList();
 	}
 	
+	public List<Venta>getListVendedor(String filtro){
+		String jpql="SELECT p FROM Venta p "
+				+"WHERE vendedor LIKE ?1";
+		
+		Query q =em.createQuery(jpql, Venta.class);
+		q.setParameter(1, filtro );
+		return q.getResultList();
+	}
+	
+	public List<Venta>getListComprador(String filtro){
+		String jpql="SELECT p FROM Venta p "
+				+"WHERE comprador LIKE ?1";
+		
+		Query q =em.createQuery(jpql, Venta.class);
+		q.setParameter(1, filtro );
+		return q.getResultList();
+	}
+	
 }

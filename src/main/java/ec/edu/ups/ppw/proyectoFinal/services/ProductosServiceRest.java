@@ -72,7 +72,7 @@ public class ProductosServiceRest {
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public List<Producto> getProductos(){
-		List<Producto> productos = proON.getProductos();
+		List<Producto> productos = proON.retornarActivos();
 		return productos;
 	}
 
