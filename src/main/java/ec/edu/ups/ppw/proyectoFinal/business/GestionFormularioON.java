@@ -16,6 +16,7 @@ public class GestionFormularioON {
 	@Inject
 	private FormularioDAO formularioDAO;
 	
+	//metodo para guardar el formulario
 	public void guardarFormulario(Formulario formulario) {
 	
 			formulario.setId(siguienteId());

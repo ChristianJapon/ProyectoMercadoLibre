@@ -7,6 +7,9 @@ import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+//Propiedad entity, permite dar una entidad a la clase
+//caso de que no se use el @Table(name""), la entidad tomara el valor de lc clase
+
 @Entity
 @Table(name="TBL_PERSONA")
 public class Persona  implements Serializable{

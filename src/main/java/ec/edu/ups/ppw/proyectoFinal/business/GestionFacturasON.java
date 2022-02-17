@@ -18,6 +18,8 @@ public class GestionFacturasON {
 	@Inject
 	private PersonaDAO daoPersona;
 	
+	//llamando a la clase DAO, nos permite 
+	//utilizar los metodos que se encuentran ahui
 	
 	public void guardarPersona(Persona pe) {
 		
@@ -26,20 +28,23 @@ public class GestionFacturasON {
 			daoPersona.insert(pe);
 		}
 	
+	
 	public Persona buscarUsuario(String cedula, String correo) {
-		
 	Persona p = daoPersona.read(cedula);
-		
+		//condicional para devolcer un objeto persona
+		//siempre y cunedo los datos correspondan
+	
 		if(p != null & p.getCorreo().equals(correo)) {
-			
 			return p;	
-			
 		}
 				
 		return null;
 	}
 
-	
+	//El siguiente metodo permite al administrador
+	//realizar cambios en la persona creada
+	//a su vez en un futuro esto podria ayudar a que el mismo usuario
+	//pueda modificar sus datos
 	public void guardarCambios(Persona pe) {
 		
 		Persona p  = daoPersona.read(pe.getCedula());
@@ -64,37 +69,6 @@ public class GestionFacturasON {
 		
 	}
 	
-	
-	
-	/*
-	//******PRODUCTO
-	
-	public void guardarProducto(Producto pro) {
 		
-		Producto p=daoProducto.read(pro.getCodigo());
-		if(p==null) 
-			daoProducto.insert(pro);
-		else
-			daoProducto.update(pro);
-	}
-
-	public List<Producto> getProducto() {
-		return daoProducto.getList();
-	}
-
-	
-	public Persona getProducto(String codigo) {
-		Persona p=daoPersona.read(codigo);
-		return p;
-		
-	}
-	public List<Producto> getListPorCodigo(String filtro) {
-		filtro="v%" + filtro + "%";
-		return daoProducto.getListxCodigo(filtro);
-	}
-	
-	
-	*/
-	
 
 }

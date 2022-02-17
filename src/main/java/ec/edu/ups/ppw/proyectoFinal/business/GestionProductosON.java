@@ -17,6 +17,8 @@ public class GestionProductosON {
 	private ProductoDAO daoProducto;
 	private PersonaDAO daoPersona;
 	
+	//Metodo que permite guardar y editar el producto
+	//el cual tiene la facilidad el vendedor
 	public void guardarProducto(Producto pr) {
 		
 		Producto pro=daoProducto.read(pr.getCodigo());
@@ -26,6 +28,8 @@ public class GestionProductosON {
 			daoProducto.update(pr);		
 	}
 	
+	//asi como puede editar el producto, tambien puede dar de baja
+	//a los productos que ya no tengan o que desee ya no vender mas
 	public void eliminarProducto(Producto pr) {
 		Producto pro=daoProducto.read(pr.getCodigo());
 		if(pro==null)
@@ -33,7 +37,6 @@ public class GestionProductosON {
 		else
 			daoProducto.delete(pr);
 			
-		
 	}
 	
 	

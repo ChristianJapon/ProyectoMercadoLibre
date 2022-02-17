@@ -24,6 +24,8 @@ public class PersonaDAO {
 		em.merge(p);
 	}
 
+	
+	
 	public List<Persona>getListxCorreo(String filtro) {
 		
 		String jpql="SELECT p FROM Persona p "

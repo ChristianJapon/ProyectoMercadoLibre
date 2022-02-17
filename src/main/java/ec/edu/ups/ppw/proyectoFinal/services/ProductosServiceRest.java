@@ -41,6 +41,9 @@ public class ProductosServiceRest {
 		
 	}
 	
+	//Asi como el @POST Y @GET, tambien tenemos el @DELETE que bien se supone nos permite 
+	//el transalado de datos para su eliminacion
+	//existe tambien el de actualizar
 	
 	@DELETE
 	@Path("elimanar")

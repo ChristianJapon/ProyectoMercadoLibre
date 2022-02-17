@@ -14,6 +14,8 @@ public class GestionVentasON {
 	@Inject
 	private VentasDAO ventaDAO;
 	
+	//Metodo el cual permite que elo sistema de ventas tenga su propio registro
+	//el cual tambien sera guardado, y permitira ver un historial del mismo
 	public void guardarVenta(Venta venta) {
 		venta.setCodigo(siguienteId());
 		ventaDAO.insert(venta);

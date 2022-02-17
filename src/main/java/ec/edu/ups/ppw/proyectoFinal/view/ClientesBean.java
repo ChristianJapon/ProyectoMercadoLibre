@@ -92,6 +92,9 @@ public class ClientesBean {
 		this.clientes = clientes;
 	}
 
+	
+	//Metodo que nos permite guardar los datos de la Persoan
+	//se ustilizara para crear a nuestro clientes  o vendedores
 	public String guardar() {
 		
 		System.out.println(this.cedula+"  "+this.nombre+" "+this.correo);
@@ -109,7 +112,11 @@ public class ClientesBean {
 		return null;// "listado-clientes";
 	}
 		
-
+	
+	//Dirigida mas apra los administradores
+	//metodo que permite actualizar los datos de los usuarios
+	//en unfuturo se puede realizar para que los mismo usuarios
+	//puedan editar
 	public String guardarCambios() {
 	Persona p= new Persona();
 		

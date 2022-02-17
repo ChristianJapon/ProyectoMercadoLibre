@@ -16,6 +16,10 @@ public class Producto {
 	 */
 	private static final long serialVersionUID = 1L;
 
+	//No solo las entidades de las tablas pueden tomar nombres diferentes
+	//tambien se puede utilizar para dar nombre a sus atributos
+	//@Column nos permite realizar dicha azaña
+	
 	@Id
 	@Column(name="pro_codigo")
 	private String codigo;

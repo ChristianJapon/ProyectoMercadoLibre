@@ -37,9 +37,9 @@ public class ProductosBean {
 
 	private List<Producto> productos;
 	
-	private int cont=1;
+	/*private int cont=1;
 	
-	private double total=Double.parseDouble(precio);
+	private double total=Double.parseDouble(precio);*/
 
 	@PostConstruct
 	public void init() {
@@ -111,14 +111,14 @@ public class ProductosBean {
 		this.filtro = filtro;
 	}
 	
-	public int getCont() {
+	/*public int getCont() {
 		return cont;
 	}
 
 	public void setCont(int cont) {
 		this.cont = cont;
 	}
-
+*/
 	public List<Producto> getProductos() {
 		return productos;
 	}
@@ -127,14 +127,14 @@ public class ProductosBean {
 		this.productos = productos;
 	}
 	
-	public double getTotal() {
+	/*public double getTotal() {
 		return total;
 	}
 
 	public void setTotal(double total) {
 		this.total = total;
 	}
-
+*/
 	public String guardar() {
 		System.out.println(this.codigo+"  "+this.nombre+" "+this.precio);
 		Producto pr = new Producto();
@@ -152,7 +152,7 @@ public class ProductosBean {
 		return   null;// "listado-productos"; 
 	}
 
-	public void sumar() {
+/*	public void sumar() {
 		this.cont=this.cont+1;
 		total = Double.parseDouble(precio) * cont;
 	}
@@ -166,5 +166,5 @@ public class ProductosBean {
 	public String buscarCedula() {
 		clientes=facOn.getListPorCedula(this.filtro);
 		return null;
-	}
+	}*/
 }

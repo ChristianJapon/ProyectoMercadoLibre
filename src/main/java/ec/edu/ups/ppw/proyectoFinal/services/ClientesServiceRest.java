@@ -37,6 +37,12 @@ public class ClientesServiceRest {
 	private GestionVentasON venON;
 	
 	
+	//El método POST introduce los parámetros en la solicitud para el servidor.
+	//Por ello, no quedan visibles para el usuario. Además, la capacidad del método POST es ilimitada.
+	
+	//El formato JSON se utiliza para estructurar datos en forma de texto y
+	//permite el intercambio de información entre aplicaciones de manera sencilla, liviana y rápida.
+	
 	@POST
 	@Consumes(MediaType.APPLICATION_JSON)
 	@Produces(MediaType.APPLICATION_JSON)
@@ -55,6 +61,9 @@ public class ClientesServiceRest {
 		}
 	
 	}
+	
+	//NOs permite como funcion principal el poder obtener los datos guardados posteriromente
+	//Es decir, funciona como un listar
 	
 	@GET
 	@Path("login")

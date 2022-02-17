@@ -6,4 +6,6 @@ import javax.ws.rs.core.Application;
 @ApplicationPath("ws")
 public class AppPath extends Application{
 
+	//Lo cual nos permitira para el REST
+	
 }
