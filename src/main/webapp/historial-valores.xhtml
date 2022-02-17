@@ -9,10 +9,10 @@
 
 
 </h:head> 
-<ui:composition template="blank-page-crear-prodicto.xhtml">
+<ui:composition template="blank-page-crearProducto.xhtml">
     <ui:define name="CrearProducto">
-    	Crear Producto
-        <h:outputText value="#{msg.tituloPagina}" />
+    	Historial de Valores:
+        
     </ui:define>
     <ui:define name="content">
     
@@ -21,28 +21,35 @@
     	<h:form class ="forms-sample">
     	
     	
-                                  Buscar:
-		<h:inputText value="#{clientesBean.filtro}" />
-			<h:commandButton action="#{productosBean.buscarCedula()}"
-					value="Buscar" />
+		<div class="col">
+			<div class="form-group row">
+			<label class="col-sm-2 col-form-label">Buscar:</label>
+			<h:inputText class="form-control col-sm-6" value="#{clientesBean.filtro}" />
+			<h:commandButton action="#{clientesBean.buscarCedula()}" class="btn btn-primary" value="Buscar" />
+			</div>
+		</div>
+		
 					
-		<h:dataTable value="#{productosBean.productos}" var="producto" class="table table-striped">
+		<h:dataTable value="#{clientesBean.clientes}" var="producto" class="table table-striped">
 				<h:column>
 				<f:facet name="header">Cedula</f:facet>
 					#{producto.cedula}
 				</h:column>
-
+	
 				<h:column>
-					<f:facet name="header">Nombre</f:facet>
+				<f:facet name="header">Nombre</f:facet>
 					#{producto.nombre}
 				</h:column>
 
 				<h:column>
-					<f:facet name="header">Precio</f:facet>
-					#{producto.precio}
+					<f:facet name="header">Ingresos</f:facet>
+					#{ventasBean.ingresos(producto.cedula)}
 				</h:column>
-
 				
+				<h:column>
+					<f:facet name="header">Egresos</f:facet>
+					#{ventasBean.egresos(producto.cedula)}
+				</h:column>
 
              	
                   

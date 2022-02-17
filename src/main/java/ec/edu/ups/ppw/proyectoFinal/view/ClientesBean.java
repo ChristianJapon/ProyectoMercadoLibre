@@ -128,7 +128,7 @@ public class ClientesBean {
 	}
 	
 	public String buscarCedula() {
-		clientes=facOn.getListPorCedula(this.filtro);
+		clientes = facOn.getListPorCedula(this.filtro);
 		return null;
 	}
 	

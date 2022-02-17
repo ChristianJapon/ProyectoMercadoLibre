@@ -37,6 +37,8 @@ public class Producto {
 
 	private String cedula;
 	
+	private boolean estado;
+	
 	
 	public String getCedula() {
 		return cedula;
@@ -94,6 +96,13 @@ public class Producto {
 		this.photo = photo;
 	}
 
+	public boolean getEstado() {
+		return estado;
+	}
+
+	public void setEstado(boolean estado) {
+		this.estado = estado;
+	}
 
 	
 		

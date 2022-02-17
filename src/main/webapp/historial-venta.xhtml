@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml" 
+	xmlns:ui="http://java.sun.com/jsf/facelets"
+    xmlns:f="http://java.sun.com/jsf/core" 	
+    xmlns:h="http://java.sun.com/jsf/html">
+ <h:head>
+
+
+
+</h:head> 
+<ui:composition template="blank-page-crearProducto.xhtml">
+    <ui:define name="CrearProducto">
+    	Historial de ventas:
+        
+    </ui:define>
+    <ui:define name="content">
+    
+    
+    
+    	<h:form class ="forms-sample">
+    	
+    	
+		<div class="col">
+			<div class="form-group row">
+			<label class="col-sm-2 col-form-label">Buscar:</label>
+			<h:inputText class="form-control col-sm-6" value="#{ventasBean.filtro}" />
+			<h:commandButton action="#{ventasBean.buscarPorVendedor()}" class="btn btn-primary" value="Buscar" />
+			</div>
+		</div>
+		
+					
+		<h:dataTable value="#{ventasBean.lista}" var="producto" class="table table-striped">
+				<h:column>
+				<f:facet name="header">Cedula</f:facet>
+					#{producto.vendedor}
+				</h:column>
+	
+				<h:column>
+				<f:facet name="header">Nombre</f:facet>
+					#{ventasBean.buscarNombrePersona(producto.vendedor)}
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">Nombre</f:facet>
+					#{ventasBean.buscarPrecioProducto(producto.codigoProducto)}
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">Cantidad</f:facet>
+					#{producto.cantidad}
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">Total</f:facet>
+					#{producto.total}
+				</h:column>
+
+             	
+                  
+			</h:dataTable>
+                   
+        </h:form>
+    </ui:define>
+
+</ui:composition>
+</html>

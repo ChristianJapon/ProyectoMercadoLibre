@@ -1,5 +1,6 @@
 package ec.edu.ups.ppw.proyectoFinal.business;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.ejb.Stateless;
@@ -56,4 +57,20 @@ public class GestionProductosON {
 		return daoPersona.getListxCedula(filtro);
 	}
 	
+	public void Actualizar(String codigo) {
+		Producto p = daoProducto.read(codigo);
+		p.setEstado(false);
+		daoProducto.update(p);
+		
+	}
+	
+	public List<Producto> retornarActivos(){
+		List<Producto> lista = new ArrayList<Producto>();
+		for (Producto producto : daoProducto.getList()) {
+			if (producto.getEstado() == true) {
+				lista.add(producto);
+			}
+		}
+		return lista;
+	}
 }

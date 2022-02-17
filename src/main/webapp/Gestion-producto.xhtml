@@ -1,0 +1,54 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd"> 
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:rich="http://richfaces.org/rich"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:a4j="http://richfaces.org/a4j"
+      xmlns:h="http://java.sun.com/jsf/html"> 
+
+<ui:composition template="blank-page-crear.xhtml">
+    <ui:define name="title">
+    	Listado Formularios
+    </ui:define>
+    <ui:define name="content">
+    
+    <h2 class="text-dark font-weight-bold mb-2"> Todos los formularios </h2>
+    
+    <h:dataTable value="#{productosBean.activos}" var="formulario" class="table table-striped">
+				<h:column>
+				<f:facet name="header">id</f:facet>
+					#{formulario.codigo}
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">Nombre</f:facet>
+					#{formulario.nombre}
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">correo</f:facet>
+					#{formulario.descripcion}
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">Mensaje</f:facet>
+					#{formulario.precio}
+				</h:column>
+
+				<h:column>
+					<f:facet name="header">Mensaje</f:facet>
+					#{formulario.estado}
+				</h:column>
+				
+				<h:column>
+					<f:facet name="header">Mensaje</f:facet>
+					<h:commandButton action="#{productosBean.anular()}" value="Anular" />
+				</h:column>
+
+			</h:dataTable>
+     
+    </ui:define>
+
+</ui:composition>
+
+</html>

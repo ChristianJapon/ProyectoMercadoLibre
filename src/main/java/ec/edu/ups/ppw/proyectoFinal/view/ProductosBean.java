@@ -34,17 +34,17 @@ public class ProductosBean {
 
 	private String filtro;
 	private List<Persona>clientes = new ArrayList<Persona>();
+	private List<Producto> activos = new ArrayList<Producto>();
 
 	private List<Producto> productos;
 	
-	private int cont=1;
 	
-	private double total=Double.parseDouble(precio);
 
 	@PostConstruct
 	public void init() {
 		productos = prodOn.getProductos();
 		clientes=facOn.getClientes();
+		activos = prodOn.retornarActivos();
 	}
 
 	public String getCodigo() {
@@ -111,13 +111,7 @@ public class ProductosBean {
 		this.filtro = filtro;
 	}
 	
-	public int getCont() {
-		return cont;
-	}
-
-	public void setCont(int cont) {
-		this.cont = cont;
-	}
+	
 
 	public List<Producto> getProductos() {
 		return productos;
@@ -127,12 +121,13 @@ public class ProductosBean {
 		this.productos = productos;
 	}
 	
-	public double getTotal() {
-		return total;
+
+	public List<Producto> getActivos() {
+		return activos;
 	}
 
-	public void setTotal(double total) {
-		this.total = total;
+	public void setActivos(List<Producto> activos) {
+		this.activos = activos;
 	}
 
 	public String guardar() {
@@ -152,19 +147,13 @@ public class ProductosBean {
 		return   null;// "listado-productos"; 
 	}
 
-	public void sumar() {
-		this.cont=this.cont+1;
-		total = Double.parseDouble(precio) * cont;
-	}
-	public void restar() {
-		if(this.cont>1) {
-			this.cont=this.cont-1;
-			total = Double.parseDouble(precio) * cont;
-		}
-		
-	}
-	public String buscarCedula() {
+		public String buscarCedula() {
 		clientes=facOn.getListPorCedula(this.filtro);
+		return null;
+	}
+		
+	public String anular() {
+		System.out.println("Waasaaa");
 		return null;
 	}
 }

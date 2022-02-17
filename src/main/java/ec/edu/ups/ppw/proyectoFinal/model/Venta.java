@@ -1,5 +1,6 @@
 package ec.edu.ups.ppw.proyectoFinal.model;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
@@ -7,11 +8,22 @@ import javax.persistence.Id;
 public class Venta {
 
 	@Id
+	@Column(name="ven_codigo")
 	private int codigo;
+	
+	@Column(name="ven_codigoProducto")
 	private String codigoProducto;
+	
+	@Column(name="ven_cantidad")
 	private String cantidad;
+	
+	@Column(name="ven_total")
 	private String total;
+	
+	@Column(name="ven_vendedor")
 	private String vendedor;
+	
+	@Column(name="ven_comprador")
 	private String comprador;
 	
 	public int getCodigo() {
